@@ -1,61 +1,71 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🧾 Jadara Backend Technical Task
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Backend API implementation for the **Jadara technical task**, built with **Laravel 12**.
 
-## About Laravel
+## ✅ Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Laravel Sanctum authentication
+- Email verification with 6-digit code
+- Full CRUD for user posts
+- `/stats` endpoint
+- AJAX-based dashboard for managing posts
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🧪 Postman Collection
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Test all endpoints using the shared Postman collection:
 
-## Learning Laravel
+🔗 [**Test with Postman**](https://athr99-2565.postman.co/workspace/My-Workspace~3ac6552e-3d56-4c5e-8a50-1c36194d1eca/collection/46310722-916a476b-143e-4a4b-8977-5197daa44626?action=share&creator=46310722&active-environment=46310722-a285e673-7f89-4f0b-9108-0920e9fc0f36)
+``
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+-can find postman_collection.json inside Jaadara_backend.postman_collection,json
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Use this to test:
+- Registration & login flow
+- Email verification
+- Post CRUD
+- Stats endpoint
 
-## Laravel Sponsors
+## 🔐 Authentication
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- `/register` – Name, email, password
+- `/login`
+- `/verify-code`
+- Only verified users can log in
 
-### Premium Partners
+## 📄 Posts
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- Users can only manage their own posts
+- Endpoints: create, read, update, delete
+- Fields: title, body, image
 
-## Contributing
+## 📊 Stats Endpoint
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Returns:
+- Total users
+- Total posts
+- Users with zero posts
 
-## Code of Conduct
+## 🖥️ Web Interface
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- Blade dashboard
+- AJAX-based post creation and deletion
+- Token stored in `localStorage`
 
-## Security Vulnerabilities
+## 🛠️ Requirements
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- PHP 8.1+
+- Laravel 12
+- MySQL or SQLite
+- Composer
 
-## License
+## 🚀 Setup
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+git clone  https://github.com/yourname/jaadara-backend.git 
+cd jaadara-backend
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan serve
